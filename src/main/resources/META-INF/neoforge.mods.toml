@@ -1,0 +1,29 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+license = "CC0-1.0"
+issueTrackerURL = "https://github.com/traelmyx/mobs-attempt-parkour/issues"
+
+[[mods]]
+modId = "${id}"
+version = "${version}"
+displayName = "${name}"
+authors = "traelmyx, Barribob"
+${logo_key} = "assets/mobs_attempt_parkour/icon.png"
+description = '''Zombies, skeletons, spiders and other mobs jump over gaps, water, lava and fire to reach you. An updated port of Barribob's Mobs Attempt Parkour.'''
+
+[[mixins]]
+config = "mobs_attempt_parkour.mixins.json"
+
+[[dependencies.${id}]]
+modId = "neoforge"
+type = "required"
+versionRange = "[${neoforge_major},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${id}]]
+modId = "minecraft"
+type = "required"
+versionRange = "${mc_dep}"
+ordering = "NONE"
+side = "BOTH"

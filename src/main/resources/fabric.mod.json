@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 1,
+	"id": "${id}",
+	"version": "${version}",
+	"name": "${name}",
+	"description": "Zombies, skeletons, spiders and other mobs jump over gaps, water, lava and fire to reach you. An updated port of Barribob's Mobs Attempt Parkour.",
+	"authors": ["traelmyx"],
+	"contributors": ["Barribob (original mod)"],
+	"contact": {
+		"sources": "https://github.com/traelmyx/mobs-attempt-parkour",
+		"issues": "https://github.com/traelmyx/mobs-attempt-parkour/issues"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/mobs_attempt_parkour/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": ["io.github.traelmyx.parkour.fabric.ParkourFabric"]
+	},
+	"mixins": ["mobs_attempt_parkour.mixins.json"],
+	"depends": {
+		"fabricloader": ">=0.16.0",
+		"minecraft": "${mc_dep}",
+		"java": ">=${java}"
+	}
+}
