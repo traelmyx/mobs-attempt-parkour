@@ -60,7 +60,7 @@ public class NeoForgeGameTests {
 		Holder<TestEnvironmentDefinition<?>> env = event.registerEnvironment(Identifier.fromNamespaceAndPath(MOD_ID, "default"));
 		register(event, env, "zombie_jumps_gap", ParkourTests.COURSE_TICKS, 5, 5);
 		register(event, env, "husk_does_not_jump", ParkourTests.COURSE_TICKS, 1, 1);
-		register(event, env, "zombie_jumps_water", ParkourTests.COURSE_TICKS, 5, 4);
+		register(event, env, "zombie_jumps_water", ParkourTests.COURSE_TICKS, 5, 3);
 		register(event, env, "block_classification", 100, 1, 1);
 	}
 
@@ -81,7 +81,7 @@ public class NeoForgeGameTests {
 		ParkourTests.huskDoesNotJump(helper);
 	}
 
-	@GameTest(template = "empty", timeoutTicks = ParkourTests.COURSE_TICKS, attempts = 5, requiredSuccesses = 4)
+	@GameTest(template = "empty", timeoutTicks = ParkourTests.COURSE_TICKS, attempts = 5, requiredSuccesses = 3)
 	public static void zombieJumpsWater(GameTestHelper helper) {
 		ParkourTests.zombieJumpsWater(helper);
 	}

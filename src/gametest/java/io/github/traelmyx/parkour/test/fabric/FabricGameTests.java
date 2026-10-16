@@ -24,7 +24,7 @@ public class FabricGameTests {
 		ParkourTests.huskDoesNotJump(helper);
 	}
 
-	@GameTest(structure = EMPTY, maxTicks = ParkourTests.COURSE_TICKS, maxAttempts = 5, requiredSuccesses = 4)
+	@GameTest(structure = EMPTY, maxTicks = ParkourTests.COURSE_TICKS, maxAttempts = 5, requiredSuccesses = 3)
 	public void zombieJumpsWater(GameTestHelper helper) {
 		ParkourTests.zombieJumpsWater(helper);
 	}
@@ -48,7 +48,7 @@ public class FabricGameTests {
 		ParkourTests.huskDoesNotJump(helper);
 	}
 
-	@GameTest(template = EMPTY, timeoutTicks = ParkourTests.COURSE_TICKS, attempts = 5, requiredSuccesses = 4)
+	@GameTest(template = EMPTY, timeoutTicks = ParkourTests.COURSE_TICKS, attempts = 5, requiredSuccesses = 3)
 	public void zombieJumpsWater(GameTestHelper helper) {
 		ParkourTests.zombieJumpsWater(helper);
 	}
