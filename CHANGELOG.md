@@ -1,3 +1,7 @@
+## 1.0.1
+
+- Internal cleanup (metadata and package names)
+
 ## 1.0.0
 
 - Ported to 1.21.1 and 26.3, Fabric and NeoForge
