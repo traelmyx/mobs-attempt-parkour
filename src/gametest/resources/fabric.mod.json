@@ -1,0 +1,15 @@
+{
+	"schemaVersion": 1,
+	"id": "${id}_gametest",
+	"version": "${version}",
+	"name": "Mobs Attempt Parkour GameTests",
+	"environment": "*",
+	"entrypoints": {
+		"fabric-gametest": ["io.github.traelmyx.parkour.test.fabric.FabricGameTests"],
+		"fabric-client-gametest": ["io.github.traelmyx.parkour.test.fabric.FabricClientGameTests"],
+		"client": ["io.github.traelmyx.parkour.test.fabric.FabricClientSmoke"]
+	},
+	"depends": {
+		"${id}": "*"
+	}
+}
