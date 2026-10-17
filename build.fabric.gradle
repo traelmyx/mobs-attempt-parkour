@@ -102,6 +102,10 @@ jar {
 
 def gametestJar = tasks.register('gametestJar', Jar) {
 	from sourceSets.gametest.output
+	if (mc == '1.21.11') {
+		// see hasClientGameTestApi: without these entrypoints Fabric API never reads @GameTest, so the smoke client can start a world
+		filesMatching('fabric.mod.json') { filter { line -> line.contains('fabric-gametest') || line.contains('fabric-client-gametest') ? null : line } }
+	}
 	archiveClassifier = obf ? 'gametest-dev' : 'gametest'
 }
 def gametestModJar = gametestJar
