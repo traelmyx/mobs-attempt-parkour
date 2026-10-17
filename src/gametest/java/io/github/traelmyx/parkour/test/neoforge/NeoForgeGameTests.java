@@ -73,8 +73,13 @@ public class NeoForgeGameTests {
 	/^private static void register(RegisterGameTestsEvent event, Holder<TestEnvironmentDefinition> env, String name, int maxTicks, int attempts, int successes) {^/
 		Identifier id = Identifier.fromNamespaceAndPath(MOD_ID, name);
 		event.registerTest(id, new FunctionGameTestInstance(ResourceKey.create(Registries.TEST_FUNCTION, id),
+			//? if >=26 {
 			new TestData<>(env, net.minecraft.world.level.Level.OVERWORLD, EMPTY, maxTicks, 0, true,
 				net.minecraft.world.level.block.Rotation.NONE, false, attempts, successes, false, 0)));
+			//?} else {
+			/^new TestData<>(env, EMPTY, maxTicks, 0, true,
+				net.minecraft.world.level.block.Rotation.NONE, false, attempts, successes, false)));
+			^///?}
 	}
 	//?} else {
 	/^@GameTest(template = "empty", timeoutTicks = ParkourTests.COURSE_TICKS, attempts = 5, requiredSuccesses = 5)
