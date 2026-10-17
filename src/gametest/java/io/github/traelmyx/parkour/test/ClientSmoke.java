@@ -9,7 +9,10 @@ import net.minecraft.world.level.LevelSettings;
 import net.minecraft.world.level.WorldDataConfiguration;
 import net.minecraft.world.level.levelgen.WorldOptions;
 import net.minecraft.world.level.levelgen.presets.WorldPresets;
-//? if <26 {
+//? if >=1.21.11 && <26 {
+/*import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.world.level.gamerules.GameRules;
+*///?} else if <1.21.11 {
 /*import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.world.level.GameRules;
 *///?}
@@ -97,7 +100,28 @@ public final class ClientSmoke {
 	private static void screenshot(Minecraft mc) {
 		Screenshot.grab(mc, false);
 	}
-	//?} else {
+	//?} else if >=1.21.11 {
+	/*private static Screen screen(Minecraft mc) {
+		return mc.screen;
+	}
+
+	private static boolean overlayHidden(Minecraft mc) {
+		return mc.getOverlay() == null;
+	}
+
+	private static void createWorld(Minecraft mc) {
+		LevelSettings settings = new LevelSettings("smoke", GameType.CREATIVE, false, Difficulty.PEACEFUL,
+			true, new GameRules(WorldDataConfiguration.DEFAULT.enabledFeatures()), WorldDataConfiguration.DEFAULT);
+		mc.createWorldOpenFlows().createFreshLevel("smoke", settings, new WorldOptions(0L, false, false),
+			registries -> registries.lookupOrThrow(Registries.WORLD_PRESET)
+				.getOrThrow(WorldPresets.FLAT).value().createWorldDimensions(),
+			mc.screen);
+	}
+
+	private static void screenshot(Minecraft mc) {
+		Screenshot.grab(mc.gameDirectory, "parkour-singleplayer.png", mc.getMainRenderTarget(), 1, msg -> {});
+	}
+	*///?} else {
 	/*private static Screen screen(Minecraft mc) {
 		return mc.screen;
 	}

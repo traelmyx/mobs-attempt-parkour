@@ -27,7 +27,10 @@ public class FabricClientGameTests implements FabricClientGameTest {
 			throw new AssertionError("mod is not loaded");
 		}
 		try (TestSingleplayerContext singleplayer = context.worldBuilder().create()) {
+			//? if >=26 {
 			singleplayer.getConnection().waitForChunksRender();
+			//?} else
+			/*singleplayer.getClientWorld().waitForChunksRender();*/
 			context.takeScreenshot("parkour-singleplayer");
 			filmJump(context, singleplayer, "creeper");
 			filmJump(context, singleplayer, "zombie");
@@ -47,7 +50,10 @@ public class FabricClientGameTests implements FabricClientGameTest {
 		sp.getServer().runCommand(String.format("tp @a %.1f %.1f %.1f 0 16", x + 6.5, y + 2.0, z - 3.0));
 		context.getInput().pressKey(o -> o.keyToggleGui);
 		context.waitTicks(20);
+		//? if >=26 {
 		sp.getConnection().waitForChunksRender();
+		//?} else
+		/*sp.getClientWorld().waitForChunksRender();*/
 
 		AtomicReference<Mob> zombie = new AtomicReference<>();
 		sp.getServer().runOnServer(s -> {

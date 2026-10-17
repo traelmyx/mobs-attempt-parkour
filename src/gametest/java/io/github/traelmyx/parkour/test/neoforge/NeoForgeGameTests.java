@@ -57,14 +57,20 @@ public class NeoForgeGameTests {
 	}
 
 	private static void registerTests(RegisterGameTestsEvent event) {
+		//? if >=26 {
 		Holder<TestEnvironmentDefinition<?>> env = event.registerEnvironment(Identifier.fromNamespaceAndPath(MOD_ID, "default"));
+		//?} else
+		/*Holder<TestEnvironmentDefinition> env = event.registerEnvironment(Identifier.fromNamespaceAndPath(MOD_ID, "default"));*/
 		register(event, env, "zombie_jumps_gap", ParkourTests.COURSE_TICKS, 5, 5);
 		register(event, env, "husk_does_not_jump", ParkourTests.COURSE_TICKS, 1, 1);
 		register(event, env, "zombie_jumps_water", ParkourTests.COURSE_TICKS, 5, 3);
 		register(event, env, "block_classification", 100, 1, 1);
 	}
 
+	//? if >=26 {
 	private static void register(RegisterGameTestsEvent event, Holder<TestEnvironmentDefinition<?>> env, String name, int maxTicks, int attempts, int successes) {
+	//?} else
+	/*private static void register(RegisterGameTestsEvent event, Holder<TestEnvironmentDefinition> env, String name, int maxTicks, int attempts, int successes) {*/
 		Identifier id = Identifier.fromNamespaceAndPath(MOD_ID, name);
 		event.registerTest(id, new FunctionGameTestInstance(ResourceKey.create(Registries.TEST_FUNCTION, id),
 			new TestData<>(env, net.minecraft.world.level.Level.OVERWORLD, EMPTY, maxTicks, 0, true,
