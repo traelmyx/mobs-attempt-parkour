@@ -4,7 +4,8 @@ apply plugin: obf ? 'net.fabricmc.fabric-loom-remap' : 'net.fabricmc.fabric-loom
 apply plugin: 'maven-publish'
 
 def javaVersion = (project.property('mc.java') as String).toInteger()
-def hasClientGameTestApi = stonecutter.eval(mc, '>=1.21.4')
+// 1.21.11: Fabric API's @GameTest cannot be read in an intermediary production run (AnnotationFormatError on rotation()), so use the plain smoke test there
+def hasClientGameTestApi = stonecutter.eval(mc, '>=1.21.4') && mc != '1.21.11'
 
 version = "${project.property('mod.version')}+${mc}-fabric"
 group = project.property('mod.group')
