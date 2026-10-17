@@ -280,7 +280,7 @@ public class JumpToTargetGoal extends Goal {
 
 	private double jumpVelocity() {
 		double velocity = 0.42 * jumpFactor();
-		//? if >=26 {
+		//? if >=1.21.5 {
 		MobEffectInstance boost = mob.getEffect(MobEffects.JUMP_BOOST);
 		//?} else
 		/*MobEffectInstance boost = mob.getEffect(MobEffects.JUMP);*/
